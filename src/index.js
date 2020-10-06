@@ -43,6 +43,6 @@ app.use((req, res, next) => {
 app.use('/', require('./routes/index'));
 //empezar el servidor
 app.listen(app.get('port'), () => {
-    console.log('Server on port', app.get('port'));    
+    console.log(`Server on port ${ app.get('port')}`);    
 });
 
