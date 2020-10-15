@@ -4,12 +4,16 @@ const router = express.Router();
 const passport = require('passport');
 //primera pagina que el usuario visita .get para pedir
 //(re,res,next) manejador de peticiones
-router.get('/', (req,res,next) => {
-    res.render('index')
+router.get('/sign', (req,res,next) => {
+    res.render('new_sign')
 });
 //cuando el usuario ingrese, ventana para registrarse
 router.get('/signup', (req,res,next) => {
-    res.render('signup');
+    res.render('new_signup');
+});
+//cuando el usuario ingrese, ventana para registrarse
+router.get('/signup', (req,res,next) => {
+    res.render('new_signup');
 });
 //enviar escucha
 router.post('/signup', passport.authenticate('local-signup', {
@@ -21,7 +25,10 @@ router.post('/signup', passport.authenticate('local-signup', {
 }));
 //logear si ya esta creada su cuenta usuario y contraseña
 router.get('/sign', (req,res,next) => {
-    res.render('sign');    
+    res.render('new_sign');    
+});
+router.get('/sign', (req,res,next) => {
+    res.render('new_sign');    
 });
 //validar email y password
 router.post('/sign', passport.authenticate('local-sign', {
@@ -32,7 +39,7 @@ router.post('/sign', passport.authenticate('local-sign', {
 
 router.get('/logout', (req,res,next) => {
     req.logout();
-    res.redirect('/'); 
+    res.redirect('/sign'); 
 });
 //para rutas que se esta protegiendo el use se ejcuta primero
 router.use((req,res,next) => {
@@ -52,7 +59,7 @@ function isAuthenticated (req,res,next) {
     if(req.isAuthenticated ()){
         return next();
     }
-    res.redirect('/');
+    res.redirect('/sign');
 }
 
 

@@ -1,6 +1,6 @@
 <%- layout('layout/main.ejs') %>
 
-<div class="row">
+<!-- <div class="row">
     <div class="col-md-4 offset-md-4">
         <div class="card mt-4 text-center">
             <div class="card-header">
@@ -21,5 +21,23 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
+<form action="/signup" class="sign-up-form" method="POST">
+    <h2 class="title">Registrarse</h2>
+    <div class="input-field">
+      <i class="fas fa-user"></i>
+      <input type="name" name="name" placeholder="Nombre" />
+    </div>
+    <div class="input-field">
+      <i class="fas fa-envelope"></i>
+      <input type="email" name="email" placeholder="Email"/>
+    </div>
+    <div class="input-field">
+      <i class="fas fa-lock"></i>
+      <input type="password" name="password"placeholder="Contraseña"/>
+    </div>
+    <button type="submit" value="Registrarse" class="btn solid" >
+        Registrarse
+    </button>
+  </form>
