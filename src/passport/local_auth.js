@@ -22,6 +22,7 @@ passport.use('local-signup', new LocalStrategy({
         return done(null,false, req.flash('signupMessage','El correo ya existe'));
     } else {
         const newUser = new User();
+        newUser.name= req.body.name;
         newUser.email = email;
         newUser.password = newUser.encryptPassword(password);
         await newUser.save();

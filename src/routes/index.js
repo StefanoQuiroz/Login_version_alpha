@@ -4,7 +4,7 @@ const router = express.Router();
 const passport = require('passport');
 //primera pagina que el usuario visita .get para pedir
 //(re,res,next) manejador de peticiones
-router.get('/sign', (req,res,next) => {
+router.get('/', (req,res,next) => {
     res.render('new_sign')
 });
 //cuando el usuario ingrese, ventana para registrarse
@@ -51,9 +51,9 @@ router.get('/profile', (req,res,next)=>{
     res.render('profile');
 });
 
-router.get('/dashboard', (req,res, next)=>{
-    res.send('dashboard');
-});
+//router.get('/dashboard', (req,res, next)=>{
+//    res.send('dashboard');
+//});
 
 function isAuthenticated (req,res,next) {
     if(req.isAuthenticated ()){
